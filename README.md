@@ -1,2 +1,2 @@
 # 2018Fall
-The project and homework I have done at NJIT
+The projectsI have done at NJIT
