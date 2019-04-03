@@ -16,3 +16,12 @@ Design a payment application connected to MySQL.
 This application support send money, request money and registration functions.
 
 ## CS 700B   - Project
+### Object Tracking
+
+Using fast-RCNN coco model to predict the object on live webcam video.
+
+### Object Segmentation
+
+Using Mask-RCNN neural network trained with coco data set to predict 90 common objects in pictures with showing segment.
+
+Using U-net neural network trained with 40 origin fibril data and 40 mask fibril data to predict fibril segment.
