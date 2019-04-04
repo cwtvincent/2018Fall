@@ -20,63 +20,55 @@ All the data should store in Database.
 ### bank_account
 | NAME             | ATTRIBUTE
 | :--------------  |:--------------  
-| BankID           | varchar(9), NOT NULL  
-| BANumber         | varchar(9), NOT NULL
+| BankID           | varchar(9)
+| BANumber         | varchar(9)
 
 ### electronic_address
 | NAME       | ATTRIBUTE
 | :-------   | :-------
-| Type       | varchar(1),  NOT NULL
-| SSN        | varchar(9),  NOT NULL
-| Identifier | varchar(45), NOT NULL
-| Verified   | varchar(1),  NOT NULL,  DEFAULT 'n'
+| Type       | varchar(1)
+| SSN        | varchar(9)
+| Identifier | varchar(45)
+| Verified   | varchar(1)
 
 ### from_
 | NAME      | ATTRIBUTE
 | :-------  | :-------
-|RTid       | varchar(9),  NOT NULL
-|Identifier | varchar(45), NOT NULL
-|Percentage | double,      NOT NULL
-|Status     | varchar(1),  NOT NULL, DEFAULT 'p'
+|RTid       | varchar(9)
+|Identifier | varchar(45)
+|Percentage | double
+|Status     | varchar(1)
 
 ### has_additional
 | NAME      | ATTRIBUTE
 | :-------  | :-------
-| SSN       | varchar(9), NOT NULL
-| BankID    | varchar(9), NOT NULL
-| BANumber  | varchar(9), NOT NULL
-| Verified  | varchar(1), NOT NULL, DEFAULT 'n'
+| SSN       | varchar(9)
+| BankID    | varchar(9)
+| BANumber  | varchar(9)
+| Verified  | varchar(1)
 
 ### register_account
 | NAME      | ATTRIBUTE
 | :-------  | :-------
-  `USERNAME` varchar(15) NOT NULL,
-  `PASSWORD` varchar(15) NOT NULL,
-  `SSN` varchar(9) NOT NULL,
-  PRIMARY KEY (`USERNAME`),
-  UNIQUE KEY `USERNAME_UNIQUE` (`USERNAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+| USERNAME  | varchar(15)
+| PASSWORD  | varchar(15)
+| SSN       | varchar(9)
 
 ### request_transaction
 | NAME      | ATTRIBUTE
 | :-------  | :-------
-  `RTid` varchar(9) NOT NULL,
-  `Amount` double NOT NULL,
-  `DateTime` datetime NOT NULL,
-  `Memo` varchar(45) DEFAULT NULL,
-  `SSN` varchar(9) NOT NULL,
-  PRIMARY KEY (`RTid`),
-  UNIQUE KEY `RTid_UNIQUE` (`RTid`),
-  KEY `SSN_idx` (`SSN`),
-  CONSTRAINT `SSN1` FOREIGN KEY (`SSN`) REFERENCES `user_account` (`ssn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+| RTid      | varchar(9)
+| Amount    | double
+| DateTime  | datetime
+| Memo      | varchar(45)
+| SSN       | varchar(9)
 
 ### send_to_bank
 | NAME      | ATTRIBUTE
 | :-------  | :-------
-  `SSN` varchar(9) DEFAULT NULL,
-  `Amount` double DEFAULT NULL,
-  `DateTime` datetime DEFAULT NULL
+| SSN       | varchar(9)
+| Amount    | double
+| DateTime  | datetime
 
 ### send_transaction
 | NAME      | ATTRIBUTE
