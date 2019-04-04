@@ -21,6 +21,8 @@ All the data should store in Database.
 
 ## First Relational Schema
 
+![Teaser image](./relational_schema.png)
+
 ## SQL table
 
 ### bank_account
