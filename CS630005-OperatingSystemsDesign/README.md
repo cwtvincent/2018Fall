@@ -23,8 +23,6 @@ All the data should store in Database.
 | BankID           | varchar(9), NOT NULL  
 | BANumber         | varchar(9), NOT NULL
 
-PRIMARY KEY ('BankID','BANumber')
-
 ### electronic_address
 | NAME       | ATTRIBUTE
 | :-------   | :-------
@@ -33,36 +31,25 @@ PRIMARY KEY ('BankID','BANumber')
 | Identifier | varchar(45), NOT NULL
 | Verified   | varchar(1),  NOT NULL,  DEFAULT 'n'
 
- PRIMARY KEY (`Identifier`)
- 
- UNIQUE KEY `Type_UNIQUE` (`Identifier`)
- 
- KEY `SSN_idx` (`SSN`)
- 
- CONSTRAINT `SSN` FOREIGN KEY (`SSN`) REFERENCES `user_account` (`ssn`)
-
 ### from_
-  `RTid` varchar(9) NOT NULL,
-  `Identifier` varchar(45) NOT NULL,
-  `Percentage` double NOT NULL,
-  `Status` varchar(1) NOT NULL DEFAULT 'p',
-  KEY `RTid_idx` (`RTid`),
-  KEY `Identifier_idx` (`Identifier`),
-  CONSTRAINT `Identifier` FOREIGN KEY (`Identifier`) REFERENCES `electronic_address` (`identifier`),
-  CONSTRAINT `RTid` FOREIGN KEY (`RTid`) REFERENCES `request_transaction` (`rtid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+| NAME      | ATTRIBUTE
+| :-------  | :-------
+|RTid       | varchar(9),  NOT NULL
+|Identifier | varchar(45), NOT NULL
+|Percentage | double,      NOT NULL
+|Status     | varchar(1),  NOT NULL, DEFAULT 'p'
 
-CREATE TABLE `has_additional` (
-  `SSN` varchar(9) NOT NULL,
-  `BankID` varchar(9) NOT NULL,
-  `BANumber` varchar(9) NOT NULL,
-  `Verified` varchar(1) NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`SSN`,`BankID`,`BANumber`),
-  KEY `BANK2_idx` (`BANumber`,`BankID`),
-  CONSTRAINT `SSN2` FOREIGN KEY (`SSN`) REFERENCES `user_account` (`ssn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+### has_additional
+| NAME      | ATTRIBUTE
+| :-------  | :-------
+| SSN       | varchar(9), NOT NULL
+| BankID    | varchar(9), NOT NULL
+| BANumber  | varchar(9), NOT NULL
+| Verified  | varchar(1), NOT NULL, DEFAULT 'n'
 
-CREATE TABLE `register_account` (
+### register_account
+| NAME      | ATTRIBUTE
+| :-------  | :-------
   `USERNAME` varchar(15) NOT NULL,
   `PASSWORD` varchar(15) NOT NULL,
   `SSN` varchar(9) NOT NULL,
@@ -70,7 +57,9 @@ CREATE TABLE `register_account` (
   UNIQUE KEY `USERNAME_UNIQUE` (`USERNAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE `request_transaction` (
+### request_transaction
+| NAME      | ATTRIBUTE
+| :-------  | :-------
   `RTid` varchar(9) NOT NULL,
   `Amount` double NOT NULL,
   `DateTime` datetime NOT NULL,
@@ -81,37 +70,31 @@ CREATE TABLE `request_transaction` (
   KEY `SSN_idx` (`SSN`),
   CONSTRAINT `SSN1` FOREIGN KEY (`SSN`) REFERENCES `user_account` (`ssn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-CREATE TABLE `send_to_bank` (
+
+### send_to_bank
+| NAME      | ATTRIBUTE
+| :-------  | :-------
   `SSN` varchar(9) DEFAULT NULL,
   `Amount` double DEFAULT NULL,
-  `DateTime` datetime DEFAULT NULL,
-  KEY `SSN3_idx` (`SSN`),
-  CONSTRAINT `SSN3` FOREIGN KEY (`SSN`) REFERENCES `user_account` (`ssn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+  `DateTime` datetime DEFAULT NULL
 
-CREATE TABLE `send_transaction` (
-  `STid` varchar(9) NOT NULL,
-  `Amount` double NOT NULL,
-  `DateTime` datetime NOT NULL,
-  `Memo` varchar(45) DEFAULT NULL,
-  `Cancelled` varchar(1) NOT NULL DEFAULT 'n',
-  `SSN` varchar(9) NOT NULL,
-  `Identifier` varchar(45) NOT NULL,
-  PRIMARY KEY (`STid`),
-  UNIQUE KEY `STid_UNIQUE` (`STid`),
-  KEY `SSN_idx` (`SSN`),
-  KEY `Identifier_idx` (`Identifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+### send_transaction
+| NAME      | ATTRIBUTE
+| :-------  | :-------
+| STid      | varchar(9)
+| Amount    | double
+| DateTime  | datetime
+| Memo      | varchar(45)
+| Cancelled | varchar(1)
+| SSN       | varchar(9)
+| Identifier| varchar(45)
 
-CREATE TABLE `user_account` (
-  `SSN` varchar(9) NOT NULL,
-  `Name` varchar(15) NOT NULL,
-  `Balance` double NOT NULL DEFAULT '0',
-  `BankID` varchar(9) DEFAULT NULL,
-  `BANumber` varchar(9) DEFAULT NULL,
-  `PBAVerified` char(1) NOT NULL DEFAULT 'n',
-  PRIMARY KEY (`SSN`),
-  KEY `BID_idx` (`BankID`),
-  KEY `BANK_idx` (`BankID`,`BANumber`),
-  CONSTRAINT `BANK` FOREIGN KEY (`BankID`, `BANumber`) REFERENCES `bank_account` (`bankid`, `banumber`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+### user_account
+| NAME       | ATTRIBUTE
+| :-------   | :-------
+| SSN        | varchar(9)
+| Name       | varchar(15)
+| Balance    | double
+| BankID     | varchar(9)
+| BANumber   | varchar(9)
+| PBAVerifier| char(1)
