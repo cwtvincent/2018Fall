@@ -15,6 +15,12 @@ User can send money to another user and request money from other users.
 
 All the data should store in Database.
 
+## First ER Diagram
+
+![Teaser image](./erdiagram.png)
+
+## First Relational Schema
+
 ## SQL table
 
 ### bank_account
