@@ -1,5 +1,5 @@
 # 2018Fall
-The projectsI have done at NJIT
+The projects I have done at NJIT
 
 ## CS 630005 - Operating Systems Design
 
