@@ -1,7 +1,7 @@
 # 2018Fall
 The projects I have done at NJIT
 
-## CS 630005 - Operating Systems Design
+## CS 630005 - Operating Systems Design(unfinished)
 
 Linux Scheduler Profiling – create threads with different linux scheduler(FIFO, RR
 and NORMAL) in different situations and use trace-cmd and kernelshark tools to
@@ -15,7 +15,7 @@ Design a payment application connected to MySQL.
 
 This application support send money, request money and registration functions.
 
-## CS 700B   - Project
+## CS 700B   - Project(unfinished)
 ### Object Tracking
 
 Using fast-RCNN coco model to predict the object on live webcam video.
