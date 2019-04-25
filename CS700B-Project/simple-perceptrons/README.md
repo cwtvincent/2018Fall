@@ -1,6 +1,6 @@
 # Simple perceptrons
 ## compile:
-python3 perceptrons
+python3 perceptrons.py
 ## output:
 figure of loss and accuracy
 ## structure:
