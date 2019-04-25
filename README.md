@@ -1,7 +1,7 @@
 # 2018Fall
 The projects I have done by myself at NJIT
 
-## CS 630005 - Operating Systems Design(unfinished)
+## CS 630005 - Operating Systems Design
 
 Linux Scheduler Profiling – create threads with different linux scheduler(FIFO, RR
 and NORMAL) in different situations and use trace-cmd and kernelshark tools to
