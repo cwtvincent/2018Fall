@@ -1,0 +1,3 @@
+gcc filename.c -o executefilename -lpthread
+sudo trace-cmd record -e sched -o filename.dat ./filename	
+kernelshark -i filename.dat
