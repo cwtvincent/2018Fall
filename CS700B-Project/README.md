@@ -1,6 +1,15 @@
 # CS 700B - Project
-## Very simple perceptron
+## simple perceptrons
 Using mnist to train the perceptron and output the loss and accuracy
 
 
-## Very simple CNN
+## simple CNN
+
+
+## Webcam Detection
+
+
+## Unet - membrane
+
+## Mask RCNN - fibril
+
