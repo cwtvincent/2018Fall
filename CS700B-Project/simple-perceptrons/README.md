@@ -5,6 +5,7 @@ python3 perceptrons
 figure of loss and accuracy
 ## structure:
 ![Teaser image](./NN.png)
+
 The first layer is 28*28 mnist image input
 
 The second layer is 14*14 
